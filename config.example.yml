@@ -1,0 +1,17 @@
+---
+version: 1
+host: 127.0.0.1
+port: 23380
+rec_dir: /home/biliup
+limit: 3
+line: AUTO
+rooms:
+  3:
+    room_id: 3
+    user_cookie: user3.json
+    studio_title: 【3号直播间】%d-直播录像
+    part_title: "%t-%T"
+    cover: "http://i0.hdslb.com/bfs/archive/xxxxxxx.png"
+    description: Powered by hguandl
+    tags: "sometag,直播录像"
+    tid: 172
