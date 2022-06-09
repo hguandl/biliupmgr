@@ -1,0 +1,37 @@
+[package]
+name = "biliupmgr"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+[dependencies]
+actix-web = "4"
+anyhow = "1"
+chrono = "0.4"
+biliup = "0.1.9"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.8"
+tokio = { version = "1", features = ["sync"] }
+sqlx = { version = "0.5", features = ["runtime-tokio-native-tls", "sqlite", "chrono"] }
+futures = "0.3.17"
+log = "0.4"
+env_logger = "0.9"
+byteorder = { version = "1.4.3", default-features = false, optional = true }
+uuid = { version = "1.0.0", features = ["v4", "fast-rng", "macro-diagnostics"], optional = true }
+regex = { version = "1", optional = true }
+clap = { version = "3.0.0", features = ["derive"], optional = true }
+reqwest = { version = "0.11", default-features = false, features = ["json"], optional = true }
+
+[features]
+cli = ["dep:byteorder", "dep:uuid", "dep:regex", "dep:clap", "dep:reqwest"]
+
+[[bin]]
+name = "biliupcli"
+path = "src/bin/biliupcli.rs"
+required-features = ["cli"]

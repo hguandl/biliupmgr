@@ -1,0 +1,6 @@
+/target
+biliup.db*
+/*.json
+/config.yml
+
+.DS_Store
